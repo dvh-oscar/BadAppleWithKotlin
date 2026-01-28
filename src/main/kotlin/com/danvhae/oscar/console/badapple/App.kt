@@ -6,6 +6,6 @@ object App {
     private val logger = LoggerFactory.getLogger(this::class.java)
     @JvmStatic
     fun main(args: Array<String>){
-//        logger
+        logger.warn("WIP")
     }
 }
