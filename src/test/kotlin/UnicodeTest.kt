@@ -23,5 +23,18 @@ object UnicodeTest {
         }
     }
 
+    @Test
+    fun bitmask(){
+        var temp = 0
+        val target = setOf(1, 3, 5)
+        repeat(8){
+            if((it + 1) in target){
+                temp += (2 shl it)
+            }
+        }
+
+        println(temp)
+    }
+
 
 }
