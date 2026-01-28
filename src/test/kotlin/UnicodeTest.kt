@@ -1,3 +1,5 @@
+import com.danvhae.oscar.console.badapple.BitMaskUtil
+import com.danvhae.oscar.console.badapple.BrailleUtil.toBraille
 import org.junit.jupiter.api.Test
 
 object UnicodeTest {
@@ -9,18 +11,16 @@ object UnicodeTest {
     }
 
     @Test
-    fun generate(){
-        val queue = ArrayList<List<Int>>()
-        queue.add(emptyList())
-
-        repeat(5){
-            val number = it + 1
-            queue.addAll(queue.map { list -> list.toMutableList().apply { add(number) } })
-        }
-
-        for(list in queue){
-            println(list)
-        }
+    fun braille(){
+        println(
+            listOf(
+                emptySet(),
+                setOf(1),
+                setOf(1, 2),
+                setOf(1, 2, 3),
+                setOf(1, 2, 3, 4)
+            ).map { BitMaskUtil[it].toBraille() }
+        )
     }
 
     @Test

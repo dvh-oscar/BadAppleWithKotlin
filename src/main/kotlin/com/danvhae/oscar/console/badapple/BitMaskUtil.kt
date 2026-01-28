@@ -18,11 +18,22 @@ object BitMaskUtil {
             repeat(8){
                 val number = it + 1
                 if(number in set){
-                    current += (2 shl it)
+                    current += (1 shl it)
                 }
             }
             int2set[current] = set
             set2int[set] = current
         }
+
+        int2set[0] = emptySet()
+        set2int[emptySet()] = 0
+    }
+
+    operator fun get(number: Int) : Set<Int>{
+        return int2set[number]!!
+    }
+
+    operator fun get(set: Set<Int>) : Int{
+        return set2int[set]!!
     }
 }
