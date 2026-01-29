@@ -6,13 +6,13 @@ import org.bytedeco.javacv.OpenCVFrameConverter
 
 object VideoProcessor {
     fun FFmpegFrameGrabber.nextFrameToBraille(
-        numberOfX: Int, numberOfY: Int, scale: Int
+        scale: Int
     ): String{
         return OpenCVFrameConverter.ToMat().use { converter ->
             val frame = grabImage() ?: throw NoSuchElementException("no more frame")
             val mat = converter.convert(frame)
             mat.createIndexer<UByteIndexer>().use { indexer ->
-                ImageProcessor.process(indexer, numberOfX, numberOfY, scale)
+                ImageProcessor.process(indexer, scale, imageWidth, imageHeight)
             }
         }
     }

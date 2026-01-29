@@ -1,11 +1,16 @@
 package com.danvhae.oscar.console.badapple
 
-import org.slf4j.LoggerFactory
+import com.danvhae.oscar.console.badapple.commands.Root
+import com.danvhae.oscar.console.badapple.commands.GenerateCommand
+import com.danvhae.oscar.console.badapple.commands.TestCommand
+import com.github.ajalt.clikt.core.main
+import com.github.ajalt.clikt.core.subcommands
+
 
 object App {
-    private val logger = LoggerFactory.getLogger(this::class.java)
+    private const val COMMAND_PREFIX = "java -jar BadAppleWithKotlin.jar"
     @JvmStatic
-    fun main(args: Array<String>){
-        logger.warn("WIP")
-    }
+    fun main(args: Array<String>) = Root()
+        .subcommands(GenerateCommand(), TestCommand())
+        .main(args)
 }

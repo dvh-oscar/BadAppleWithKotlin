@@ -7,6 +7,7 @@ import java.io.File
 object VideoTest {
     @Test
     fun loadVideoFrame() = runBlocking{
+        println("start...")
         val grabber = FFmpegFrameGrabber("./inputs/videos/origin.webm")
         grabber.start()
 
@@ -31,6 +32,7 @@ object VideoTest {
 
     @Test
     fun generateFrameTextFiles() = runBlocking{
+        println("start...")
         val grabber = FFmpegFrameGrabber("./inputs/videos/origin.webm")
         grabber.start()
 
@@ -48,6 +50,7 @@ object VideoTest {
 
     @Test
     fun readFromGeneratedFrames(){
+        print("start...")
         File("./output/frames").listFiles { file -> file.name.endsWith(".txt") }.sorted().map { file ->
             val frame = file.readText()
         }
