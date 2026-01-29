@@ -1,9 +1,10 @@
 package com.danvhae.oscar.console.badapple.commands
 
 import com.danvhae.oscar.console.badapple.processors.VideoProcessor.nextFrameToBraille
-import com.github.ajalt.clikt.core.CliktCommand
+import com.github.ajalt.clikt.command.SuspendingCliktCommand
 import com.github.ajalt.clikt.core.Context
 import com.github.ajalt.clikt.parameters.arguments.argument
+import com.github.ajalt.clikt.parameters.types.double
 import com.github.ajalt.clikt.parameters.types.file
 import com.github.ajalt.clikt.parameters.types.int
 import com.github.ajalt.clikt.parameters.types.path
@@ -11,15 +12,15 @@ import org.bytedeco.javacv.FFmpegFrameGrabber
 import java.nio.file.Paths
 import kotlin.io.path.exists
 
-class GenerateCommand : CliktCommand("generate"){
+class GenerateCommand : SuspendingCliktCommand("generate"){
     val videoFile by argument().file()
     val output by argument().path(false)
-    val scale by argument().int()
+    val scale by argument().double()
 
     override fun help(context: Context): String {
         return "generate frames from video"
     }
-    override fun run() {
+    override suspend fun run() {
         val grabber = FFmpegFrameGrabber(videoFile)
         grabber.start()
 

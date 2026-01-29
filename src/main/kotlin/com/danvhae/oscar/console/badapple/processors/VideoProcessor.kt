@@ -6,7 +6,7 @@ import org.bytedeco.javacv.OpenCVFrameConverter
 
 object VideoProcessor {
     fun FFmpegFrameGrabber.nextFrameToBraille(
-        scale: Int
+        scale: Double
     ): String{
         return OpenCVFrameConverter.ToMat().use { converter ->
             val frame = grabImage() ?: throw NoSuchElementException("no more frame")

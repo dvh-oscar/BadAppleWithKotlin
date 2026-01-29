@@ -1,18 +1,19 @@
 package com.danvhae.oscar.console.badapple.processors
 
-import com.danvhae.oscar.console.badapple.utils.BrailleUtil.toBraille
 import com.danvhae.oscar.console.badapple.utils.BitMaskUtil
+import com.danvhae.oscar.console.badapple.utils.BrailleUtil.toBraille
 import org.bytedeco.javacpp.indexer.UByteIndexer
 
 object ImageProcessor {
 
-    fun calculateAverage(indexer: UByteIndexer, i: Long, j: Long, scale: Int, originWidth: Int, originHeight: Int) : Int{
+    fun calculateAverage(indexer: UByteIndexer, i: Long, j: Long, scale: Double, originWidth: Int, originHeight: Int) : Int{
         var sum = 0
         var count = 0
-        repeat(scale){dx ->
-            val px = scale * i + dx
-            repeat(scale){dy ->
-                val py = scale * j + dy
+        val scaleInt = scale.toInt().coerceAtLeast(1)
+        repeat(scaleInt){dx ->
+            val px = (scale * i + dx).toLong()
+            repeat(scaleInt){dy ->
+                val py = (scale * j + dy).toLong()
                 sum += indexer[py.coerceIn(0, originHeight - 1L), px.coerceIn(0, originWidth - 1L)]
                 count++
 
@@ -21,7 +22,7 @@ object ImageProcessor {
         return if(count > 0) sum / count else 0
     }
 
-    fun brailleAt(indexer: UByteIndexer, x: Long, y: Long, scale: Int, originWidth: Int, originHeight: Int): Char{
+    fun brailleAt(indexer: UByteIndexer, x: Long, y: Long, scale: Double, originWidth: Int, originHeight: Int): Char{
         val pixelsAt = HashSet<Int>()
         repeat(2){dx ->
             repeat(4){ dy ->
@@ -47,10 +48,10 @@ object ImageProcessor {
         return BitMaskUtil[pixelsAt].toBraille()
     }
 
-    fun process(indexer: UByteIndexer, scale: Int, originWidth: Int, originHeight: Int): String{
+    fun process(indexer: UByteIndexer, scale: Double, originWidth: Int, originHeight: Int): String{
         val lines = ArrayList<String>()
-        val numberOfX = originWidth / (scale * 2)
-        val numberOfY = originHeight / (scale * 4)
+        val numberOfX = (originWidth / (scale * 2)).toInt()
+        val numberOfY = (originHeight / (scale * 4)).toInt()
         repeat(numberOfY){ y ->
             val yLong = y.toLong()
             var builder = StringBuilder()

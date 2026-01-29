@@ -15,13 +15,10 @@ object VideoTest {
 //        val converter = OpenCVFrameConverter.ToMat()
 
         val scale = 16
-        val numberOfX = grabber.imageWidth / (scale * 2)
-        val numberOfY = grabber.imageHeight / (scale * 4)
-
         val start = System.currentTimeMillis()
         while(true){
 //            println("\n".repeat(numberOfY))
-            val converted = runCatching { grabber.nextFrameToBraille(numberOfX, numberOfY, scale) }.getOrNull() ?: break
+            val converted = runCatching { grabber.nextFrameToBraille(scale.toDouble()) }.getOrNull() ?: break
 //            println(converted)
 //            delay(25)
         }
@@ -37,12 +34,10 @@ object VideoTest {
         grabber.start()
 
         val scale = 16
-        val numberOfX = grabber.imageWidth / (scale * 2)
-        val numberOfY = grabber.imageHeight / (scale * 4)
 
         var count = 0
         while(true){
-            val converted = runCatching { grabber.nextFrameToBraille(numberOfX, numberOfY, scale) }.getOrNull() ?: break
+            val converted = runCatching { grabber.nextFrameToBraille(scale.toDouble()) }.getOrNull() ?: break
             File("./output/frames/${count.toString().padStart(5, '0')}.txt").writeText(converted)
             count++
         }

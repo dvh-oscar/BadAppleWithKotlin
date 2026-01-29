@@ -32,7 +32,7 @@ object ImageTest {
         val mat = Mat()
         source.copyTo(mat)
         val indexer: UByteIndexer = mat.createIndexer()
-        println(ImageProcessor.calculateAverage(indexer, 32, 16, 8))
+        println(ImageProcessor.calculateAverage(indexer, 32, 16, 8.toDouble(), source.cols(), source.rows()))
     }
 
 
@@ -61,7 +61,7 @@ object ImageTest {
                 val yLong = y.toLong()
                 lines[y] =
                     (0 until numberOfX).joinToString(""){x ->
-                        ImageProcessor.brailleAt(indexer, x.toLong(), yLong, scale).toString()
+                        ImageProcessor.brailleAt(indexer, x.toLong(), yLong, scale.toDouble(), source.cols(), source.rows()).toString()
                     }
 
             }
