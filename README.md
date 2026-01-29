@@ -7,7 +7,7 @@
 
 I want do that by Kotlin.
 
-This console application based on Java 23.
+This console application based on Java 21.
 
 If you provide video file, this application generate 8-dot braille ASCII art, and print it console.
 
