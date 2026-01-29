@@ -1,10 +1,6 @@
-import com.danvhae.oscar.console.badapple.ImageProcessor
-import com.danvhae.oscar.console.badapple.VideoProcessor.nextFrameToBraille
-import kotlinx.coroutines.delay
+import com.danvhae.oscar.console.badapple.processors.VideoProcessor.nextFrameToBraille
 import kotlinx.coroutines.runBlocking
-import org.bytedeco.javacpp.indexer.UByteIndexer
 import org.bytedeco.javacv.FFmpegFrameGrabber
-import org.bytedeco.javacv.OpenCVFrameConverter
 import org.junit.jupiter.api.Test
 import java.io.File
 

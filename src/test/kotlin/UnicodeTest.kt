@@ -1,5 +1,5 @@
-import com.danvhae.oscar.console.badapple.BitMaskUtil
-import com.danvhae.oscar.console.badapple.BrailleUtil.toBraille
+import com.danvhae.oscar.console.badapple.utils.BitMaskUtil
+import com.danvhae.oscar.console.badapple.utils.BrailleUtil.toBraille
 import org.junit.jupiter.api.Test
 
 object UnicodeTest {

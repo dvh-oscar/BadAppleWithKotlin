@@ -1,4 +1,4 @@
-import com.danvhae.oscar.console.badapple.ImageProcessor
+import com.danvhae.oscar.console.badapple.processors.ImageProcessor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.asCoroutineDispatcher
@@ -9,7 +9,6 @@ import org.bytedeco.javacpp.indexer.UByteIndexer
 import org.bytedeco.opencv.global.opencv_imgcodecs.imread
 import org.bytedeco.opencv.opencv_core.Mat
 import org.junit.jupiter.api.Test
-import java.io.File
 import java.util.concurrent.Executors
 
 

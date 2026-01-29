@@ -1,4 +1,4 @@
-package com.danvhae.oscar.console.badapple
+package com.danvhae.oscar.console.badapple.processors
 
 import org.bytedeco.javacpp.indexer.UByteIndexer
 import org.bytedeco.javacv.FFmpegFrameGrabber

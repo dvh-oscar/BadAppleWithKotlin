@@ -1,6 +1,7 @@
-package com.danvhae.oscar.console.badapple
+package com.danvhae.oscar.console.badapple.processors
 
-import com.danvhae.oscar.console.badapple.BrailleUtil.toBraille
+import com.danvhae.oscar.console.badapple.utils.BrailleUtil.toBraille
+import com.danvhae.oscar.console.badapple.utils.BitMaskUtil
 import org.bytedeco.javacpp.indexer.UByteIndexer
 
 object ImageProcessor {

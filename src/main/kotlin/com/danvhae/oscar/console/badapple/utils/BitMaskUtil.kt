@@ -1,4 +1,4 @@
-package com.danvhae.oscar.console.badapple
+package com.danvhae.oscar.console.badapple.utils
 
 object BitMaskUtil {
     private val int2set = HashMap<Int, Set<Int>>()
