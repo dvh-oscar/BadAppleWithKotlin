@@ -12,7 +12,6 @@ import kotlinx.coroutines.withContext
 class PrintCommand : SuspendingCliktCommand("print"){
     val frames by argument().path(true)
     val fps by argument().double()
-    val clearCommand by argument()
 
     override suspend fun run() {
         val milliBetweenFrames = (1000 / fps).toLong()
@@ -23,9 +22,6 @@ class PrintCommand : SuspendingCliktCommand("print"){
                 ProcessBuilder("clear").inheritIO().start().waitFor()
             }
             echo(file.readText())
-//            delay(milliBetweenFrames  - System.currentTimeMillis() + before)
-//            echo(milliBetweenFrames - System.currentTimeMillis() + before)
-//            return
             delay((milliBetweenFrames - System.currentTimeMillis() + before).coerceIn(0, milliBetweenFrames))
         }
     }
