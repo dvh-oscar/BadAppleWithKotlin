@@ -15,7 +15,7 @@ class PrintCommand : SuspendingCliktCommand("print"){
     val clearCommand by argument()
 
     override suspend fun run() {
-        val milliBetweenFrames = (fps * 1000).toLong()
+        val milliBetweenFrames = (1000 / fps).toLong()
         frames.toFile().listFiles{file -> file.name.endsWith(".txt")}.sorted().forEach{file ->
             val before = System.currentTimeMillis()
 //            Runtime.getRuntime().exec(arrayOf(clearCommand))
@@ -23,8 +23,10 @@ class PrintCommand : SuspendingCliktCommand("print"){
                 ProcessBuilder("clear").inheritIO().start().waitFor()
             }
             echo(file.readText())
-            delay(milliBetweenFrames  - System.currentTimeMillis() + before)
-//            delay((milliBetweenFrames - System.currentTimeMillis() + before).coerceIn(0, milliBetweenFrames))
+//            delay(milliBetweenFrames  - System.currentTimeMillis() + before)
+//            echo(milliBetweenFrames - System.currentTimeMillis() + before)
+//            return
+            delay((milliBetweenFrames - System.currentTimeMillis() + before).coerceIn(0, milliBetweenFrames))
         }
     }
 }
