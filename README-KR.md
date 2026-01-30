@@ -32,3 +32,10 @@ java -jar BadAppleWithKotlin.jar print <frames_folder>
 ```
 - `frame_folder` : '점자 변환' 단계에서 `output_folder` 로 지정한 폴더입니다. 해당 폴더에는 ASCII Art가 아닌 텍스트 파일이 있으면 안 됩니다.
 - `fps` : 1초에 몇 프레임이 재생되어야 하는지에 대한 값입니다. 0을 초과하는 실수여야 합니다.
+
+---
+# Build 시 주의사항
+많은 test 함수가 파일 입출력 등을 시험하고자 작성되어 gradle build시 실패할 수 있습니다.
+```shell
+./gradlew build -x test
+```

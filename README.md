@@ -30,3 +30,11 @@ java -jar BadAppleWithKotlin.jar print <frames_folder> <fps>
 ```
 - `frame_folder` : the `output_folder` that 'Generate frames'. The folder should not contains non-ASCII art txt file.
 - `fps` : frame per second. greater then 0, real number.
+
+---
+
+# Do you want it build yourself?
+Lots of test functions won't pass on your environment.
+```shell
+./gradlew build -x test
+```
