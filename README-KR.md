@@ -28,7 +28,7 @@ java -jar BadAppleWithKotlin.jar generate <video> <output_folder> <scale>
 여러 장의 ASCII ART를 재생합니다.
 > 이 기능은 윈도우에서 동작하지 않습니다.
 ```shell
-java -jar BadAppleWithKotlin.jar print <frames_folder> <fps> <clear_command>
+java -jar BadAppleWithKotlin.jar print <frames_folder>
 ```
 - `frame_folder` : '점자 변환' 단계에서 `output_folder` 로 지정한 폴더입니다. 해당 폴더에는 ASCII Art가 아닌 텍스트 파일이 있으면 안 됩니다.
 - `fps` : 1초에 몇 프레임이 재생되어야 하는지에 대한 값입니다. 0을 초과하는 실수여야 합니다.

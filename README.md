@@ -26,7 +26,7 @@ java -jar BadAppleWithKotlin.jar generate <video> <output_folder> <scale>
 Play ASCII arts on console
 > This feature doesn't work on Windows
 ```shell
-java -jar BadAppleWithKotlin.jar print <frames_folder> <fps> <clear_command>
+java -jar BadAppleWithKotlin.jar print <frames_folder> <fps>
 ```
 - `frame_folder` : the `output_folder` that 'Generate frames'. The folder should not contains non-ASCII art txt file.
 - `fps` : frame per second. greater then 0, real number.
