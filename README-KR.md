@@ -5,7 +5,7 @@
 # 소개
 > *화면이 있다면 배드애플을 틀어라.*
 
-저는 그것을 Kotlin 으로 하고 싶었습니다.
+저는 그것을 Kotlin 으로 하고 싶었습니다. [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://youtu.be/gzyMeUIUHbE)
 
 이 애플리케이션은 Java 21로 개발하엿고, 명령줄에서 실행하는 애플리케이션입니다.
 

@@ -5,7 +5,7 @@
 
 > *If it exists, you can play Bad Apple on it.*
 
-I want do that by Kotlin.
+I want do that by Kotlin. [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://youtu.be/gzyMeUIUHbE)
 
 This console application based on Java 21.
 
